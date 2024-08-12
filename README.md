@@ -107,13 +107,3 @@ This function will send a chat request to smartcontract.
 4. onFalure: ()=> This function will be called when purchase request fail (user creadits do not enough to purchase these creadits).
 
 
-dsdas
-dasdas
-sad
-
-
-
-dasdas
-
-
-asdda
