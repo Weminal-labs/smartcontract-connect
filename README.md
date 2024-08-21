@@ -1,8 +1,9 @@
+# Network: Devnet
 # Setup wallet support
 
 [Aptos wallet connect](https://aptos.dev/en/build/guides/build-e2e-dapp/3-add-wallet-support)
 
-Use `const {account} = useWallet()`  to get user wallet (use this wallet to sign transactions)
+Use `const {account,signAndSubmitTransaction} = useWallet()`  to get user wallet (use this wallet to sign transactions)
 
 # API docs for calling contract
 
@@ -27,7 +28,7 @@ interface IAccountResponse {
 ### Load user info:
 ``` 
 async function get_user_info(
-  signer: Account, 
+  signer: AccountInfo, 
   onSuccess: (acount: IAccountResponse)=> void,
   onFalure: ()=> void
 
@@ -40,14 +41,14 @@ This function will get user address from signer, and use SDK to call contract fo
 
 #### Parameter:
 
-1. signer: Account : user account get from wallet (useWallet), this function will get account addresss to find account info
+1. signer: AccountInfo : user account get from wallet (useWallet), this function will get account addresss to find account info
 2. onSuccess: (acount: IAccountResponse)=> void: This function will be called if get user info successful
 3. onFalure: ()=> This function will be called when get get user info failed (user have not existed on the platform before).
 
 ### Create account:
 ```
 async function create_account(
-  signerAccount: Account, 
+  signAndSubmitTransaction: (transaction: InputTransactionData) => Promise<any>,
   userName: string,
   onSuccess: () => void,
   onFalure: () => void,
@@ -62,7 +63,7 @@ This function will create a new account for user to use Aptopus services.
 
 #### Parameters:
 
-1. signer: Account : user account get from wallet (useWallet), this function will get account addresss to create new user account on Aptopus platform
+1. signAndSubmitTransaction: use to sign transaction
 2. userName: username, this value shouldn't require the special characters except '_'
 3. onSuccess: ()=> void: This function will be called if create userinfo successful
 4.  onFalure: ()=> This function will be called when create new account fail (user address have already existed on aptopus plaform).
@@ -70,7 +71,7 @@ This function will create a new account for user to use Aptopus services.
 ### Purchase for creadits
 ```
 async function purchase_creadits(
-  signer: Account, 
+  signAndSubmitTransaction: (transaction: InputTransactionData) => Promise<any>,
   creadits: number,
   onSuccess: () => void,
   onFalure: () => void
@@ -81,7 +82,7 @@ This function will send a request for furchase creadits to smartcontract, user w
 
 #### Parameters:
 
-1. signer: Account : user account get from wallet (useWallet), this function will get account addresss to sign transaction
+1. signAndSubmitTransaction: use to sign transaction
 2. creadits:number of creadits that user want to purchase
 3. onSuccess: ()=> void: This function will be called if purchase request successful
 4. onFalure: ()=> This function will be called when purchase request fail (user balance do not enough to purchase these creadits).
@@ -89,11 +90,10 @@ This function will send a request for furchase creadits to smartcontract, user w
 ### Submit chat request
 ```
 async function submit_request(
+  signAndSubmitTransaction: (transaction: InputTransactionData) => Promise<any>,
   creadits: number,
-  signer: Account,
   onSuccess: () => void,
   onFalure: () => void
-
 )
 ```
 
@@ -101,7 +101,7 @@ async function submit_request(
 This function will send a chat request to smartcontract. 
 
 #### Parameters
-1. signer: Account : user account get from wallet (useWallet), this function will get account addresss to sign transaction
+1. signAndSubmitTransaction: use to sign transaction
 2. creadits:number of creadits that user have to pay for chat request  
 3. onSuccess: ()=> void: This function will be called if purchase request successful
 4. onFalure: ()=> This function will be called when purchase request fail (user creadits do not enough to purchase these creadits).
