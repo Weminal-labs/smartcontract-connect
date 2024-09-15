@@ -4,7 +4,8 @@
 [Aptos wallet connect](https://aptos.dev/en/build/guides/build-e2e-dapp/3-add-wallet-support)
 
 Use `const {account,signAndSubmitTransaction} = useWallet()`  to get user wallet (use this wallet to sign transactions)
-Use [Petra Aptos wallet](https://chromewebstore.google.com/detail/petra-aptos-wallet/ejjladinnckdgjemekebdpeokbikhfci) to sign transaction
+Use [Petra Aptos wallet](https://chromewebstore.google.com/detail/petra-aptos-wallet/ejjladinnckdgjemekebdpeokbikhfci) to sign transaction:
+Apter create account -> setting -> network -> testnet
 # API docs for calling contract
 
 ***Note: This project will containt 2 type of accounts: 1 is wallet accounts use for signing transaction and the others is user account which is stored on smartcontract to use our services***
