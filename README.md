@@ -10,7 +10,7 @@ Apter create account -> setting -> network -> testnet
 
 ***Note: This project will containt 2 type of accounts: 1 is wallet accounts use for signing transaction and the others is user account which is stored on smartcontract to use our services***
 ## .env 
-```REACT_APP_PACKAGE_ADDRESS=0xd8029c761d7cfd93ada529e5d80db270943a7a53d3405037c5a477b124e95b3d```
+```REACT_APP_PACKAGE_ADDRESS=0x6fc9d910dfa27a7e2bcdf8bdbc01a4b47cf20a5fff5c61e1629b5d75db035676```
 ## Type:
 
 ### IAccountResponse
